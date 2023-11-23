@@ -38,7 +38,22 @@ proxies:
   reality-opts: 
     public-key: e4tr_TRTXb-2WnlQqH9-oHwmJRP9CGR1gSK2coY1ElI    
     short-id: d2b0df14                      
-  client-fingerprint: chrome                                       
+  client-fingerprint: chrome                  
+- name: vmess-ws节点                         
+  type: vmess
+  server: 2406:8dc0:6004:5b1e:4d4c:f0b4:54ea:75d0                        
+  port: 2082                                     
+  uuid: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  servername: www.bing.com                    
+  ws-opts:
+    path: "1c521c53-d4cb-40ec-9065-68ab3a0a6d58-vm"                             
+    headers:
+      Host: www.bing.com                     
 - name: hysteria2节点                            
   type: hysteria2                                      
   server: 5.16283684.xyz                               
@@ -48,7 +63,20 @@ proxies:
     - h3
   sni: 5.16283684.xyz                               
   skip-cert-verify: false
-  fast-open: true  
+  fast-open: true
+- name: tuic5节点                            
+  server: 2406:8dc0:6004:5b1e:4d4c:f0b4:54ea:75d0                      
+  port: 59587                                    
+  type: tuic
+  uuid: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58       
+  password: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58   
+  alpn: [h3]
+  disable-sni: true
+  reduce-rtt: true
+  udp-relay-mode: native
+  congestion-controller: bbr
+  sni: www.bing.com                                
+  skip-cert-verify: true  
 proxy-groups:
 - name: 负载均衡
   type: load-balance
@@ -57,7 +85,9 @@ proxy-groups:
   strategy: round-robin
   proxies:
     - vless-reality-vision节点                              
+    - vmess-ws节点
     - hysteria2节点
+    - tuic5节点
 - name: 自动选择
   type: url-test
   url: https://cp.cloudflare.com/generate_204
@@ -65,7 +95,9 @@ proxy-groups:
   tolerance: 50
   proxies:
     - vless-reality-vision节点                              
+    - vmess-ws节点
     - hysteria2节点
+    - tuic5节点
     
 - name: 🌍选择代理节点
   type: select
@@ -74,7 +106,9 @@ proxy-groups:
     - 自动选择
     - DIRECT
     - vless-reality-vision节点                              
+    - vmess-ws节点
     - hysteria2节点
+    - tuic5节点
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
