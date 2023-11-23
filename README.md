@@ -118,8 +118,7 @@
           "public_key": "e4tr_TRTXb-2WnlQqH9-oHwmJRP9CGR1gSK2coY1ElI",
           "short_id": "d2b0df14"
         }
-      }
-    },
+      },
     {
         "type": "hysteria2",
         "tag": "hy2-sb",
@@ -154,9 +153,7 @@
       "type": "urltest",
       "outbounds": [
         "vless-sb",
-        "vmess-sb",
         "hy2-sb",
-        "tuic5-sb"
       ],
       "url": "https://cp.cloudflare.com/generate_204",
       "interval": "1m",
