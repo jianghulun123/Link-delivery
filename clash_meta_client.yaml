@@ -28,7 +28,7 @@ proxies:
 - name: vless-reality-vision节点               
   type: vless
   server: 2.16283684.xyz                           
-  port: 20432                                
+  port: 31729                               
   uuid: 297407be-c031-4ef8-8e2f-336a77d05416   
   network: tcp
   udp: true
