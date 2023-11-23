@@ -135,26 +135,7 @@
             ]
         }
     },
-        {
-            "type":"tuic",
-            "tag": "tuic5-sb",
-            "server": "5.16283684.xyz",
-            "server_port": 59587,
-            "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
-            "password": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
-            "congestion_control": "bbr",
-            "udp_relay_mode": "native",
-            "udp_over_stream": false,
-            "zero_rtt_handshake": false,
-            "heartbeat": "10s",
-            "tls":{
-                "enabled": true,
-                "server_name": "5.16283684.xyz",
-                "insecure": false,
-                "alpn": [
-                    "h3"
-                ]
-            }
+        
         },
     {
       "tag": "direct",
