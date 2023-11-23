@@ -63,20 +63,7 @@ proxies:
     - h3
   sni: 5.16283684.xyz                               
   skip-cert-verify: false
-  fast-open: true
-- name: tuic5节点                            
-  server: 5.16283684.xyz                      
-  port: 59587                                    
-  type: tuic
-  uuid: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58       
-  password: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58   
-  alpn: [h3]
-  disable-sni: true
-  reduce-rtt: true
-  udp-relay-mode: native
-  congestion-controller: bbr
-  sni: 5.16283684.xyz                                
-  skip-cert-verify: false  
+  fast-open: true  
 proxy-groups:
 - name: 负载均衡
   type: load-balance
@@ -87,7 +74,6 @@ proxy-groups:
     - vless-reality-vision节点                              
     - vmess-ws节点
     - hysteria2节点
-    - tuic5节点
 - name: 自动选择
   type: url-test
   url: https://cp.cloudflare.com/generate_204
@@ -97,7 +83,6 @@ proxy-groups:
     - vless-reality-vision节点                              
     - vmess-ws节点
     - hysteria2节点
-    - tuic5节点
     
 - name: 🌍选择代理节点
   type: select
@@ -108,7 +93,6 @@ proxy-groups:
     - vless-reality-vision节点                              
     - vmess-ws节点
     - hysteria2节点
-    - tuic5节点
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
