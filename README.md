@@ -118,7 +118,34 @@
           "public_key": "e4tr_TRTXb-2WnlQqH9-oHwmJRP9CGR1gSK2coY1ElI",
           "short_id": "d2b0df14"
         }
-      },
+      }
+    },
+{
+            "server": "37.128.253.104",
+            "server_port": 2082,
+            "tag": "vmess-sb",
+            "tls": {
+                "enabled": false,
+                "server_name": "www.bing.com",
+                "insecure": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "www.bing.com"
+                    ]
+                },
+                "path": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58-vm",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58"
+        },
     {
         "type": "hysteria2",
         "tag": "hy2-sb",
@@ -134,7 +161,26 @@
             ]
         }
     },
-        
+        {
+            "type":"tuic",
+            "tag": "tuic5-sb",
+            "server": "5.16283684.xyz",
+            "server_port": 59587,
+            "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+            "password": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+            "congestion_control": "bbr",
+            "udp_relay_mode": "native",
+            "udp_over_stream": false,
+            "zero_rtt_handshake": false,
+            "heartbeat": "10s",
+            "tls":{
+                "enabled": true,
+                "server_name": "5.16283684.xyz",
+                "insecure": false,
+                "alpn": [
+                    "h3"
+                ]
+            }
         },
     {
       "tag": "direct",
@@ -153,7 +199,9 @@
       "type": "urltest",
       "outbounds": [
         "vless-sb",
+        "vmess-sb",
         "hy2-sb",
+        "tuic5-sb"
       ],
       "url": "https://cp.cloudflare.com/generate_204",
       "interval": "1m",
