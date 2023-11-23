@@ -1,1 +1,260 @@
-dHVpYzovLzI5NzQwN2JlLWMwMzEtNGVmOC04ZTJmLTMzNmE3N2QwNTQxNjoyOTc0MDdiZS1jMDMxLTRlZjgtOGUyZi0zMzZhNzdkMDU0MTZAMi4xNjI4MzY4NC54eXo6NDkxODM/Y29uZ2VzdGlvbl9jb250cm9sPWJiciZhbHBuPWgzJnNuaT0yLjE2MjgzNjg0Lnh5eiZ1ZHBfcmVsYXlfbW9kZT1uYXRpdmUNCmh5MjovLzI5NzQwN2JlLWMwMzEtNGVmOC04ZTJmLTMzNmE3N2QwNTQxNkAyLjE2MjgzNjg0Lnh5ejo1MTAxMT9tcG9ydD01MTAxMSw1MDAwMC02MDAwMCZzbmk9Mi4xNjI4MzY4NC54eXoNCnZtZXNzOi8vZXlKaFpHUWlPaUozZDNjdWQzUnZMbTl5WnlJc0ltRnBaQ0k2SWpBaUxDSm9iM04wSWpvaWMzVm5aMlZ6ZEMxbWRXNWpkR2x2Ym1Gc2FYUjVMWFJ5WVdOcmN5MW5ZVzFsYzNCdmRDNTBjbmxqYkc5MVpHWnNZWEpsTG1OdmJTSXNJbWxrSWpvaU1qazNOREEzWW1VdFl6QXpNUzAwWldZNExUaGxNbVl0TXpNMllUYzNaREExTkRFMklpd2libVYwSWpvaWQzTWlMQ0p3WVhSb0lqb2lNamszTkRBM1ltVXRZekF6TVMwMFpXWTRMVGhsTW1ZdE16TTJZVGMzWkRBMU5ERTJMWFp0SWl3aWNHOXlkQ0k2SWpRME15SXNJbkJ6SWpvaUlpd2ljMk41SWpvaVlYVjBieUlzSW5OdWFTSTZJbk4xWjJkbGMzUXRablZ1WTNScGIyNWhiR2wwZVMxMGNtRmphM010WjJGdFpYTndiM1F1ZEhKNVkyeHZkV1JtYkdGeVpTNWpiMjBpTENKMGJITWlPaUowYkhNaUxDSjBlWEJsSWpvaWJtOXVaU0lzSW5ZaU9pSXlJbjA9DQp2bGVzczovLzI5NzQwN2JlLWMwMzEtNGVmOC04ZTJmLTMzNmE3N2QwNTQxNkAyLjE2MjgzNjg0Lnh5ejoyMDQzMj9zZWN1cml0eT1yZWFsaXR5JnNuaT13d3cuZWNvc2lhLm9yZyZmcD1jaHJvbWUmcGJrPS05bGQ2Y21CcnRidF9JVHYwTE9wbFVnQWdOWWIzaXBaZDFXeTVBa25kQ3Mmc2lkPTgyMTk2NDgwJnR5cGU9dGNwJmZsb3c9eHRscy1ycHJ4LXZpc2lvbiZlbmNyeXB0aW9uPW5vbmUNCmp1aWNpdHk6Ly80MjRkZGE3Ni0wZWRhLTQ3M2MtYmI0MC00NWRlZmUwMjk0OGQ6YWFmZGU4MjlAMzcuMTI4LjI1My4xMDQ6NjE1OTg/Y29uZ2VzdGlvbl9jb250cm9sPWJiciZzbmk9My4xNjI4MzY4NC54eXo=
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+    "dns": {
+        "servers": [
+            {
+                "tag": "remote",
+                "address": "https://8.8.8.8/dns-query",
+                "detour": "select"
+            },
+            {
+                "tag": "local",
+                "address": "https://223.5.5.5/dns-query",
+                "detour": "direct"
+            },
+            {
+                "address": "rcode://success",
+                "tag": "block"
+            },
+            {
+                "tag": "dns_fakeip",
+                "strategy": "ipv4_only",
+                "address": "fakeip"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "local"
+            },
+            {
+                "disable_cache": true,
+                "geosite": "category-ads-all",
+                "server": "block"
+            },
+            {
+                "clash_mode": "Global",
+                "server": "remote"
+            },
+            {
+                "clash_mode": "Direct",
+                "server": "local"
+            },
+            {
+                "geosite": "cn",
+                "server": "local"
+            },
+             {
+               "query_type": [
+                "A",
+                "AAAA"
+               ],
+              "server": "dns_fakeip"
+            }
+          ],
+           "fakeip": {
+           "enabled": true,
+           "inet4_range": "198.18.0.0/15",
+           "inet6_range": "fc00::/18"
+         },
+          "independent_cache": true
+        },
+      "inbounds": [
+    {
+      "type": "tun",
+      "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true
+    }
+  ],
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "",
+      "external_ui_download_detour": "",
+      "secret": "",
+      "default_mode": "Rule",
+      "store_mode": true,
+      "store_selected": true,
+      "store_fakeip": true
+    }
+  },
+  "outbounds": [
+    {
+      "tag": "select",
+      "type": "selector",
+      "default": "auto",
+      "outbounds": [
+        "auto",
+        "vless-sb",
+        "vmess-sb",
+        "hy2-sb",
+        "tuic5-sb"
+      ]
+    },
+    {
+      "type": "vless",
+      "tag": "vless-sb",
+      "server": "37.128.253.104",
+      "server_port": 4165,
+      "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+      "reality": {
+          "enabled": true,
+          "public_key": "e4tr_TRTXb-2WnlQqH9-oHwmJRP9CGR1gSK2coY1ElI",
+          "short_id": "d2b0df14"
+        }
+      }
+    },
+{
+            "server": "37.128.253.104",
+            "server_port": 2082,
+            "tag": "vmess-sb",
+            "tls": {
+                "enabled": false,
+                "server_name": "www.bing.com",
+                "insecure": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "www.bing.com"
+                    ]
+                },
+                "path": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58-vm",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58"
+        },
+    {
+        "type": "hysteria2",
+        "tag": "hy2-sb",
+        "server": "5.16283684.xyz",
+        "server_port": 44423,
+        "password": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+        "tls": {
+            "enabled": true,
+            "server_name": "5.16283684.xyz",
+            "insecure": false,
+            "alpn": [
+                "h3"
+            ]
+        }
+    },
+        {
+            "type":"tuic",
+            "tag": "tuic5-sb",
+            "server": "5.16283684.xyz",
+            "server_port": 59587,
+            "uuid": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+            "password": "1c521c53-d4cb-40ec-9065-68ab3a0a6d58",
+            "congestion_control": "bbr",
+            "udp_relay_mode": "native",
+            "udp_over_stream": false,
+            "zero_rtt_handshake": false,
+            "heartbeat": "10s",
+            "tls":{
+                "enabled": true,
+                "server_name": "5.16283684.xyz",
+                "insecure": false,
+                "alpn": [
+                    "h3"
+                ]
+            }
+        },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "vless-sb",
+        "vmess-sb",
+        "hy2-sb",
+        "tuic5-sb"
+      ],
+      "url": "https://cp.cloudflare.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    }
+  ],
+  "route": {
+      "geoip": {
+      "download_url": "https://cdn.jsdelivr.net/gh/soffchen/sing-geoip@release/geoip.db",
+      "download_detour": "select"
+    },
+    "geosite": {
+      "download_url": "https://cdn.jsdelivr.net/gh/soffchen/sing-geosite@release/geosite.db",
+      "download_detour": "select"
+    },
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
+      },
+      {
+        "outbound": "dns-out",
+        "protocol": "dns"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "geosite": "cn",
+        "geoip": [
+          "cn",
+          "private"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": "geolocation-!cn",
+        "outbound": "select"
+      }
+    ]
+  },
+    "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "direct"
+  }
+}
