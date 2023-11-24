@@ -27,7 +27,7 @@ dns:
 proxies:
 - name: vless-reality-vision节点               
   type: vless
-  server: 2406:8dc0:6004:5b1e:4d4c:f0b4:54ea:75d0                           
+  server: 37.128.253.104                           
   port: 4165                                
   uuid: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58   
   network: tcp
@@ -65,7 +65,7 @@ proxies:
   skip-cert-verify: false
   fast-open: true
 - name: tuic5节点                            
-  server: 2406:8dc0:6004:5b1e:4d4c:f0b4:54ea:75d0                      
+  server: 37.128.253.104                      
   port: 20000                                    
   type: tuic
   uuid: 1c521c53-d4cb-40ec-9065-68ab3a0a6d58       
